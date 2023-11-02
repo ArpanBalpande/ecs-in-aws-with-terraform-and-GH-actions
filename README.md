@@ -1,44 +1,36 @@
-Executing Terraform Configuration:
+**Executing Terraform Configuration:**
 
-Clone the Repository:
+**Clone the Repository:**
 
 Start by cloning the GitHub repository containing the Terraform code to your local development environment.
-bash
-Copy code
 git clone <repository_url>
 cd <repository_directory>
-Set Up AWS Credentials:
+
+
+**Set Up AWS Credentials:**
 
 Ensure that you have the AWS CLI installed on your local machine. If not, you can download it from AWS CLI.
-
 Configure your AWS credentials by running the following command and providing your AWS Access Key ID and Secret Access Key:
 
-Copy code
 aws configure
-Initialize Terraform:
+
+**Initialize Terraform:**
 
 Initialize Terraform in your working directory to download the necessary providers and modules:
-csharp
-Copy code
 terraform init
-Execute Terraform Plan:
 
-Before making any changes, review the expected changes and resources to be created or modified with a Terraform plan:
-Copy code
+Execute Terraform Plan, Before making any changes, review the expected changes and resources to be created or modified with a Terraform plan:
 terraform plan
-Apply Terraform Changes:
 
-If the plan looks correct and aligns with your expectations, apply the Terraform configuration to create or update the infrastructure. Use the -auto-approve flag to skip the confirmation prompt:
-arduino
-Copy code
+Apply Terraform Changes, If the plan looks correct and aligns with your expectations, apply the Terraform configuration to create or update the infrastructure. Use the -auto-approve flag to skip the confirmation prompt:
 terraform apply -auto-approve
-Destroy Infrastructure (Optional):
 
+Destroy Infrastructure (Optional):
 If you need to tear down the infrastructure, you can use the terraform destroy -auto-approve command. Make sure to back up any data before running this command, as it will remove resources.
-Setting Up GitHub Actions Workflow:
+
+**Setting Up GitHub Actions Workflow:**
 
 GitHub Repository:
-
 Ensure that you have created a GitHub repository for this task, and the Terraform code is pushed to a branch, e.g., 'main.'
 Create GitHub Secrets:
 
@@ -48,13 +40,8 @@ Create the following secrets:
 
 AWS_ACCESS_KEY_ID: Set this to your AWS Access Key ID.
 AWS_SECRET_ACCESS_KEY: Set this to your AWS Secret Access Key.
-GitHub Actions Workflow Configuration:
 
-In your repository, create a .github/workflows/terraform.yml file with the GitHub Actions workflow code, as mentioned in the task description.
-
-Ensure that the workflow triggers on the desired branch (e.g., 'main') by configuring the on section in the workflow file.
-
-Push Changes:
+**Push Changes:**
 
 Push the updated GitHub Actions workflow file to your repository.
 GitHub Actions Execution:
