@@ -7,16 +7,15 @@ resource "aws_ecs_task_definition" "ecs_task" {
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   execution_role_arn       = aws_iam_role.ecs_execution_role.arn
-
   cpu                      = 1024
-  memory                   = 2048
+  memory                   = 1024
   container_definitions    = <<TASK_DEFINITION
 [
   {
     "name": "iis",
     "image": "mcr.microsoft.com/windows/servercore/iis",
     "cpu": 1024,
-    "memory": 2048,
+    "memory": 1024,
     "essential": true
   }
 ]
