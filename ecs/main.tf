@@ -8,12 +8,24 @@ resource "aws_ecs_task_definition" "ecs_task" {
   requires_compatibilities = ["FARGATE"]
   execution_role_arn       = aws_iam_role.ecs_execution_role.arn
 
-  container_definitions = jsonencode([
-    {
-      name  = var.app_name
-      image = "your-docker-image:latest"
-    }
-  ])
+  cpu                      = 1024
+  memory                   = 2048
+  container_definitions    = <<TASK_DEFINITION
+[
+  {
+    "name": "iis",
+    "image": "mcr.microsoft.com/windows/servercore/iis",
+    "cpu": 1024,
+    "memory": 2048,
+    "essential": true
+  }
+]
+TASK_DEFINITION
+
+  runtime_platform {
+    operating_system_family = "WINDOWS_SERVER_2019_CORE"
+    cpu_architecture        = "X86_64"
+  }
 }
 
 resource "aws_iam_role" "ecs_execution_role" {
